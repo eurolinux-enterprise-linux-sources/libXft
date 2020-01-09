@@ -1,13 +1,15 @@
 Summary: X.Org X11 libXft runtime library
 Name: libXft
-Version: 2.3.1
-Release: 2%{?dist}
+Version: 2.3.2
+Release: 1%{?dist}
 License: MIT
 Group: System Environment/Libraries
 URL: http://www.x.org
 
 Source0: ftp://ftp.x.org/pub/individual/lib/%{name}-%{version}.tar.bz2
 
+BuildRequires: xorg-x11-util-macros
+BuildRequires: autoconf automake libtool
 BuildRequires: pkgconfig(xrender)
 BuildRequires: freetype-devel >= 2.1.9-2
 BuildRequires: fontconfig-devel >= 2.2-1
@@ -29,6 +31,7 @@ X.Org X11 libXft development package
 %setup -q
 
 %build
+autoreconf -v --install --force
 
 %configure --disable-static
 make %{?_smp_mflags} 
@@ -70,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/Xft.3*
 
 %changelog
+* Mon Nov 16 2015 Benjamin Tissoires <benjamin.tissoires@redhat.com> 2.3.2-1
+- libXft 2.3.2
+
 * Thu Jul 19 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.3.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
