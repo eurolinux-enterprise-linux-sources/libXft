@@ -22,7 +22,7 @@
 
 #include "xftint.h"
 
-_X_HIDDEN Bool	    _XftConfigInitialized;
+static Bool _XftConfigInitialized;
 
 _X_EXPORT Bool
 XftInit (_Xconst char *config)
@@ -43,7 +43,7 @@ XftGetVersion (void)
 }
 
 static struct {
-    char    *name;
+    const char *name;
     int	    alloc_count;
     int	    alloc_mem;
     int	    free_count;
@@ -58,7 +58,7 @@ static struct {
 static int  XftAllocCount, XftAllocMem;
 static int  XftFreeCount, XftFreeMem;
 
-static int  XftMemNotice = 1*1024*1024;
+static const int  XftMemNotice = 1*1024*1024;
 
 static int  XftAllocNotify, XftFreeNotify;
 

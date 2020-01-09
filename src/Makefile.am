@@ -21,21 +21,17 @@
 
 SUBDIRS = man src
 
-bin_SCRIPTS = xft-config
-
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xft.pc
 
-CLEANFILES = xft-config
+MAINTAINERCLEANFILES = ChangeLog INSTALL
 
-EXTRA_DIST = xft-config.in xft.pc.in autogen.sh
+.PHONY: ChangeLog INSTALL
 
-EXTRA_DIST += ChangeLog
-MAINTAINERCLEANFILES = ChangeLog
-
-.PHONY: ChangeLog
+INSTALL:
+	$(INSTALL_CMD)
 
 ChangeLog:
-	(GIT_DIR=$(top_srcdir)/.git git-log > .changelog.tmp && mv .changelog.tmp ChangeLog; rm -f .changelog.tmp) || (touch ChangeLog; echo 'git directory not found: installing possibly empty changelog.' >&2)
+	$(CHANGELOG_CMD)
 
-dist-hook: ChangeLog
+dist-hook: ChangeLog INSTALL
