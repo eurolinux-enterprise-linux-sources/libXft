@@ -1,7 +1,7 @@
 Summary: X.Org X11 libXft runtime library
 Name: libXft
-Version: 2.3.1
-Release: 5.1%{?dist}
+Version: 2.3.2
+Release: 2%{?dist}
 License: MIT
 Group: System Environment/Libraries
 URL: http://www.x.org
@@ -73,11 +73,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/Xft.3*
 
 %changelog
-* Wed Feb 12 2014 Adam Jackson <ajax@redhat.com> 2.3.1-5.1
-- Mass rebuild
+* Sun Aug 17 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.3.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.3.1-5
-- Mass rebuild 2013-12-27
+* Thu Jul 24 2014 Benjamin Tissoires <benjamin.tissoires@redhat.com> 2.3.2-1
+- libXft 2.3.2
+
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.3.1-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Sat Apr 12 2014 Dennis Gilmore <dennis @ausil.us> - 2.3.1-6
+- add patch to fix FTBFS due to freetype changes
+
+* Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.3.1-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
 * Thu Mar 07 2013 Peter Hutterer <peter.hutterer@redhat.com> - 2.3.1-4
 - autoreconf for aarch64
